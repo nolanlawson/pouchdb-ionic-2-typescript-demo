@@ -23,7 +23,7 @@ The I made modifications to the default Ionic app:
 // typings/index.d.ts
 declare module 'pouchdb' {
   var PouchDB: any;
-  export default PouchDB;
+  export = PouchDB;
 }
 ```
 
@@ -33,8 +33,11 @@ Then I imported PouchDB:
 
 ```typescript
 // app/app.ts
-import * as PouchDB from 'pouchdb';
+import PouchDB = require('pouchdb');
 console.log("Hey look, I've got PouchDB:", PouchDB);
+
+let db = new PouchDB('database');
+console.log("Hey look, I've got a PouchDB database:", db);
 ```
 
 Then I started the app:

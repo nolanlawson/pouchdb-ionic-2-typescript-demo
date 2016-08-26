@@ -2,5 +2,5 @@
 /// <reference path="modules/lodash/index.d.ts" />
 declare module 'pouchdb' {
   var PouchDB: any;
-  export default PouchDB;
+  export = PouchDB;
 }

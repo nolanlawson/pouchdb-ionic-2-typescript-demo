@@ -2,9 +2,12 @@ import {Component} from '@angular/core';
 import {Platform, ionicBootstrap} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {TabsPage} from './pages/tabs/tabs';
-import * as PouchDB from 'pouchdb';
+import PouchDB = require('pouchdb');
+
+let db = new PouchDB('database');
 
 console.log("Hey look, I've got PouchDB:", PouchDB);
+console.log("Hey look, I've got a PouchDB database:", db);
 
 @Component({
   template: '<ion-nav [root]="rootPage"></ion-nav>'
