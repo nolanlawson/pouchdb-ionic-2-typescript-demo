@@ -1,4 +1,4 @@
-Demo PouchDB + Ionic 2 + TypeScript
+Demo PouchDB + Ionic 2 RC + TypeScript 2
 =====
 
 A demo app to show how to use PouchDB with Ionic 2 and TypeScript.
@@ -6,8 +6,8 @@ A demo app to show how to use PouchDB with Ionic 2 and TypeScript.
 The app was created using:
 
 ```bash
-npm install -g ionic@beta
-ionic start test --v2 --ts
+npm install -g ionic
+ionic start test --v2 
 cd test
 ```
 
@@ -19,23 +19,12 @@ npm install --save pouchdb
 
 The I made modifications to the default Ionic app:
 
-```typescript
-// typings/index.d.ts
-declare module 'pouchdb' {
-  var PouchDB: any;
-  export = PouchDB;
-}
-```
-
-The above is only necessary because the PouchDB DefinitelyTyped definitions are out of date (as of this writing, June 2016). Hopefully that will be fixed soon, at which point you'll be able to do `typing install pouchdb` instead.
-
-Then I imported PouchDB:
+Importing PouchDB:
 
 ```typescript
-// app/app.ts
-import PouchDB = require('pouchdb');
+// src/app/app.component.ts
+import PouchDB from 'pouchdb';
 console.log("Hey look, I've got PouchDB:", PouchDB);
-
 let db = new PouchDB('database');
 console.log("Hey look, I've got a PouchDB database:", db);
 ```
@@ -46,6 +35,7 @@ Then I started the app:
 ionic serve
 ```
 
-In your browser console, you shoudl see "Hey look, I've got PouchDB".
+In your browser console, you should see "Hey look, I've got PouchDB" and "Hey look, I've got a
+PouchDB database".
 
 
